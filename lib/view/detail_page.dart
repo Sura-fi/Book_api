@@ -1,6 +1,6 @@
 
 import "package:book_api/model/detail_model.dart";
-import "package:book_api/server/detail_controller.dart";
+import "package:book_api/controller/detail_page_controller.dart";
 import "package:flutter/material.dart";
 
 class DetailPage extends StatelessWidget {
@@ -8,7 +8,7 @@ class DetailPage extends StatelessWidget {
 
   const DetailPage({
     super.key,
-     required this.bookId
+      required this.bookId
      });
 
 
