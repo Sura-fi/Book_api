@@ -1,15 +1,16 @@
+import 'package:book_api/server/detail_controller.dart';
 import 'package:book_api/server/home_page_controller.dart';
 import 'package:book_api/view/detail_page.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(HomePageController());
+    Get.put(DetailController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Book App'),
@@ -26,12 +27,13 @@ class HomePage extends StatelessWidget {
                   _.books.length,
                   (index) => GestureDetector(
                         onTap: () {
+                          Get.find<DetailController>()
+                              .setId(_.books[index].id!);
+                              Get.find<DetailController>().getDetails();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailPage(
-                                bookId: _.books[index].id!,
-                              ),
+                              builder: (context) => const DetailPage(),
                             ),
                           );
                         },

@@ -1,14 +1,14 @@
 // To parse this JSON data, do
 //
-//     final details = detailsFromJson(jsonString);
+//     final detail = detailFromJson(jsonString);
 
 import 'dart:convert';
 
-Details detailsFromJson(String str) => Details.fromJson(json.decode(str));
+Detail detailFromJson(String str) => Detail.fromJson(json.decode(str));
 
-String detailsToJson(Details data) => json.encode(data.toJson());
+String detailToJson(Detail data) => json.encode(data.toJson());
 
-class Details {
+class Detail {
     final int? id;
     final String? name;
     final String? author;
@@ -18,7 +18,7 @@ class Details {
     final int? currentStock;
     final bool? available;
 
-    Details({
+    Detail({
         this.id,
         this.name,
         this.author,
@@ -29,7 +29,7 @@ class Details {
         this.available,
     });
 
-    factory Details.fromJson(Map<String, dynamic> json) => Details(
+    factory Detail.fromJson(Map<String, dynamic> json) => Detail(
         id: json["id"],
         name: json["name"],
         author: json["author"],

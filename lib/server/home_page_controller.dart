@@ -34,7 +34,7 @@ class HomePageController extends GetxController {
         }
       } else {
         // Handle potential API errors
-        print('Error fetching books: ${response.statusCode}');
+        // print('Error fetching books: ${response.statusCode}');
       }
     } catch (e) {
       if (e is SocketException) {
